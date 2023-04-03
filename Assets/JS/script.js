@@ -46,7 +46,7 @@ searchForm.addEventListener("submit", function (event) {
       // Update the dashboard with the weather data
       currentWeather.querySelector("#city").textContent = cityName;
       currentWeather.querySelector("#date").textContent = date.toLocaleDateString();
-      currentWeather.querySelector("#weather-icon").setAttribute("src", `http://openweathermap.org/img/w/${iconCode}.png`);
+      currentWeather.querySelector("#weather-icon").setAttribute("src", `https://openweathermap.org/img/w/${iconCode}.png`);
       currentWeather.querySelector("#temp").textContent = temp;
       currentWeather.querySelector("#wind").textContent = wind;
       currentWeather.querySelector("#humidity").textContent = humidity;
