@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    /* margin: 0;
+    padding: 0;
+    background-color: white; */
+}
+
+header {
+    background-color: rgb(37, 37, 93);
+    color: white;
+    /* height: 80px; */
+    padding: 20px;
+    /* make the color go from light to dark blue */
+    display: flex;
+    justify-content: center;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    margin: 20px;
+    
+}
+
+form input[type="text"] {
+    /* flex-grow: 1; */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+form button[type="submit"] {
+    background-color: rgb(87, 87, 230);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    /* padding 10px 20px; */
+    margin-top: 5px;
+}
+
+/* .current-weather, .forecast, .search-history {
+    display: none;
+} */
+
+.current-weather {
+    border-style: solid ;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+
+.card {
+    background-color: rgb(92, 92, 239);
+    color: white;
+}
+    
+
+.city-list {
+    list-style: none;
+}
