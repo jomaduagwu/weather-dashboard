@@ -1,4 +1,4 @@
-// Define the API key and API URL from OpenWeatherMap
+// define the API key and API URL from OpenWeatherMap
 var apiKey = "d790997ca229b3abb8cc2c3ff03ae371";
 var apiUrl = "https://api.openweathermap.org/data/2.5/"; 
 
@@ -34,7 +34,7 @@ searchForm.addEventListener("submit", function (event) {
     })
     .then((data) => {
 
-      // Extract the weather data from the API response
+      // extract the weather data from the API response
       var cityName = data.name;
       var date = new Date(data.dt * 1000);
       var iconCode = data.weather[0].icon;
@@ -43,7 +43,7 @@ searchForm.addEventListener("submit", function (event) {
       var humidity = data.main.humidity;
      console.log(data);
 
-      // Update the dashboard with the weather data
+      // update the dashboard with the weather data
       currentWeather.querySelector("#city").textContent = cityName;
       currentWeather.querySelector("#date").textContent = date.toLocaleDateString();
       currentWeather.querySelector("#weather-icon").setAttribute("src", `https://openweathermap.org/img/w/${iconCode}.png`);
@@ -51,7 +51,7 @@ searchForm.addEventListener("submit", function (event) {
       currentWeather.querySelector("#wind").textContent = wind;
       currentWeather.querySelector("#humidity").textContent = humidity;
 
-        // Use the city name to fetch the 5-day forecast for the city        
+        // use the city name to fetch the 5-day forecast for the city        
         var fiveForecast = `${apiUrl}forecast?q=${cityName}&appid=${apiKey}&units=imperial`;
         fetch(fiveForecast) 
         .then(response => response.json())
@@ -61,7 +61,7 @@ searchForm.addEventListener("submit", function (event) {
           // filter forecast to display weather at noon only for each day
           var noonForecast = data.list.filter(item => new Date(item.dt * 1000).getHours() === 12);
           
-        // Update the 5-day forecast section with the relevant data
+        // update the 5-day forecast section with the relevant data
         var fiveDayForecastCardsEl = document.querySelectorAll(".five-day-forecast .card");
         for (let i = 0; i < fiveDayForecastCardsEl.length; i++) {
           var card = fiveDayForecastCardsEl[i];
@@ -82,14 +82,14 @@ searchForm.addEventListener("submit", function (event) {
     })
   .catch(error => console.error(error));      
 
-      // Store the searched city in local storage
+      // store the searched city in local storage
       var searchHistory= JSON.parse(localStorage.getItem("searchHistory")) || [];
       searchHistory.push(cityName);
       localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 
       cityList.innerHTML = "";
 
-       // Loop through the search history array and create list items to display the city names
+       // loop through the search history array and create list items to display the city names
       for (var i = 0; i < searchHistory.length; i++) {
         var cityName = searchHistory[i];
         var li = document.createElement("li");
@@ -99,7 +99,7 @@ searchForm.addEventListener("submit", function (event) {
         });
         cityList.appendChild(li);
       }
-      // Fetch weather data for the selected city and display it
+      // fetch weather data for the selected city and display it
       function displayWeather (cityName) {
         
       }
