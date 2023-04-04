@@ -19,7 +19,7 @@ searchForm.addEventListener("submit", function (event) {
   // get the city name from the search input
   var cityName = cityInput.value;
 
-  // set the five day forecast url
+  // set the open weather api url
   var openweather = `${apiUrl}weather?q=${cityName}&appid=${apiKey}&units=imperial`;
 
   // set a GET request to openweather and handle the response
@@ -57,6 +57,7 @@ searchForm.addEventListener("submit", function (event) {
         .then(response => response.json())
 
         .then(data => {
+          
           // filter forecast to display weather at noon only for each day
           var noonForecast = data.list.filter(item => new Date(item.dt * 1000).getHours() === 12);
           
@@ -80,7 +81,7 @@ searchForm.addEventListener("submit", function (event) {
       });
     })
   .catch(error => console.error(error));      
-});
+
       // Store the searched city in local storage
       var searchHistory= JSON.parse(localStorage.getItem("searchHistory")) || [];
       searchHistory.push(cityName);
@@ -93,7 +94,15 @@ searchForm.addEventListener("submit", function (event) {
         var cityName = searchHistory[i];
         var li = document.createElement("li");
         li.textContent = cityName;
+        li.addEventListener("click", function () {
+          displayWeather(cityName);
+        });
         cityList.appendChild(li);
       }
+      // Fetch weather data for the selected city and display it
+      function displayWeather (cityName) {
+        
+      }
+});
     
      
